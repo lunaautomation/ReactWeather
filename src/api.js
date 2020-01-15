@@ -1,4 +1,5 @@
 import React from 'react';
+import WeatherCard from './WeatherCard';
 
 class APIresult extends React.Component {
   constructor(props) {
@@ -6,12 +7,12 @@ class APIresult extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [{main:[],weather:[[]],clouds:[],wind:[]}],      
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Oxford,uk&APPID=992838d6689bba64ea80c087ce5c31ce`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Watford,uk&units=metric&APPID=992838d6689bba64ea80c087ce5c31ce`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -20,9 +21,6 @@ class APIresult extends React.Component {
             items: result.list
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -40,13 +38,11 @@ class APIresult extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <ul>
+        <span className="Block" >          
           {items.map(item => (
-            <li key={item}>
-              {item.main.temp} {item.main.temp_max}
-            </li>
+    <WeatherCard day={item.dt_txt}image={item.weather[0].description}description={item.weather[0].description}temp={item.main.temp}></WeatherCard>           
           ))}
-        </ul>
+        </span>
       );
     }
   }
