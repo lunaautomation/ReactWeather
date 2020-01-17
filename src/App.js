@@ -7,16 +7,16 @@ class App extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {city: '', submitted:false};
+    this.state = {city: ''};
   }
 
   handleChange(e) {
-   this.setState({city: e.target.value});
+    this.setState({city: e.target.value});
    console.log('change'+this.state.city);
   }
 
   handleSubmit(e) {     
-    this.setState({submitted: true});
+    this.setState({city: e.target.value});
     e.preventDefault();
     console.log('submit'+this.state.city);
   }

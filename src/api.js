@@ -17,8 +17,8 @@ class APIresult extends React.Component {
     this.getWeather(this.props.city);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.city !== prevState.city) {
+  componentDidUpdate(prevProps) {
+    if (this.props.city !== prevProps.city) {
       this.setState({ error: "" });
       this.getWeather(this.props.city);
     }
