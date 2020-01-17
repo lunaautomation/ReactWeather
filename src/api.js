@@ -5,6 +5,7 @@ class APIresult extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      city: '',
       error: null,
       isLoaded: false,
       items: [{main:[],weather:[[]],clouds:[],wind:[]}],      
@@ -12,7 +13,28 @@ class APIresult extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Watford,uk&units=metric&APPID=992838d6689bba64ea80c087ce5c31ce`)
+    this.setState({ error: "" });
+    this.getWeather(this.props.city);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.city !== prevState.city) {
+      this.setState({ error: "" });
+      this.getWeather(this.props.city);
+    }
+  }
+
+  handleResponse(response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("Error: Location " + response.statusText);
+    }
+  }
+  
+  getWeather(city) {
+    console.log('HERE'+city)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},uk&units=metric&APPID=992838d6689bba64ea80c087ce5c31ce`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -32,16 +54,18 @@ class APIresult extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
+    console.log('API Render'+this.props.city);
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
-    } else {
+    } 
+     else {
       return (
         <span className="Block" >          
-          {items.map(item => (
+          {items ? items.map(item => (
     <WeatherCard day={item.dt_txt}image={item.weather[0].description}description={item.weather[0].description}temp={item.main.temp}></WeatherCard>           
-          ))}
+          )):<p fontSize="30px">OH NO ITS EMPTY!</p>}
         </span>
       );
     }

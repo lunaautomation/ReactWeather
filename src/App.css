@@ -13,16 +13,33 @@
   }
 }
 
+h4{
+  font-size: x-small;
+}
+
+p{
+  color: whitesmoke;
+  font-size: xx-small;
+  font-family: Arial;
+  text-align: center;
+  margin: 0;
+}
+
 .Block{
   background-color: #6980a3;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
   font-size: 5px;
   color: white;
+}
+
+.weatherImage{
+  height: 40px;
+  width: 40px;
 }
 
 .App-header {
@@ -40,8 +57,9 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 60px;
-  height: 150px;
+  width: 80px;
+  height: 180px;
+  padding: 4px;
 }
 
 .card:hover {
