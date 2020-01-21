@@ -25,6 +25,11 @@ p{
   margin: 0;
 }
 
+.windDirection{
+  width: 30px;
+  height: 30px;
+}
+
 .Block{
   background-color: #6980a3;
   min-height: 10vh;

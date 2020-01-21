@@ -1,6 +1,7 @@
 import React from 'react';
 import WeatherCard from './WeatherCard';
 
+
 class APIresult extends React.Component {
   constructor(props) {
     super(props);
@@ -64,7 +65,7 @@ class APIresult extends React.Component {
       return (
         <span className="Block" >          
           {items ? items.map(item => (
-    <WeatherCard day={item.dt_txt}image={item.weather[0].description}description={item.weather[0].description}temp={item.main.temp}></WeatherCard>           
+    <WeatherCard day={item.dt_txt}image={item.weather[0].description}description={item.weather[0].description}temp={item.main.temp}windDir={item.wind.deg}windSpd={item.wind.speed}></WeatherCard>           
           )):<p fontSize="30px">OH NO ITS EMPTY!</p>}
         </span>
       );
