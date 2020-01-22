@@ -66,7 +66,7 @@ class APIresult extends React.Component {
         <span className="Block" >          
           {items ? items.map(item => (
     <WeatherCard day={item.dt_txt}image={item.weather[0].description}description={item.weather[0].description}temp={item.main.temp}windDir={item.wind.deg}windSpd={item.wind.speed}></WeatherCard>           
-          )):<p fontSize="30px">OH NO ITS EMPTY!</p>}
+          )):<p fontSize="30px">Location not found!</p>}
         </span>
       );
     }
