@@ -2,39 +2,39 @@ import React from 'react';
 import './App.css';
 import APIresult from './api.js';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {city: ''};
+    this.state = {city: '',search:''};
   }
 
   handleChange(e) {
-    this.setState({city: e.target.value});
+    this.setState({search: e.target.value});
    console.log('change'+this.state.city);
   }
 
-  handleSubmit(e) {     
-    this.setState({city: e.target.value});
+  handleSubmit(e) {      
+    this.setState({city: this.state.search});
     e.preventDefault();
-    console.log('submit'+this.state.city);
+    console.log('submit'+this.state.search);
   }
 
-  callAPI(city){    
-    return <APIresult city={city}/>
+  callAPI(){    
+    return <APIresult city={this.state.city}/>
   }
 
   render(){
-    let city = this.state.city;
   return ( 
     <span className="App">
       <form onSubmit={this.handleSubmit}>
-      <input value={this.state.city} onChange={this.handleChange}/> <br />
-      <button type="submit" className="btn btn-success" >Search...</button>
+      <input type="text" onChange={this.handleChange} /> 
+      <button type="submit" className="btn btn-success" >Go</button>
       </form>     
       <header className="App-header">  
-        {this.callAPI(city)}
+        {this.callAPI()}
       </header>
     </span>
     );

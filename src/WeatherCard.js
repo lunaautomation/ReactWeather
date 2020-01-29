@@ -5,6 +5,7 @@ import rainMed from './rain-med.svg';
 import rainHeavy from './rain-heavy.svg';
 import cloud from './cloud.svg';
 import overcast from './overcast.svg';
+import arrow from './arrow.svg'
 
 
 class WeatherCard extends React.Component {
@@ -56,6 +57,8 @@ class WeatherCard extends React.Component {
         <div className="container">        
         <p>{this.props.description}</p>
         <p>{this.props.temp}°C</p>
+        <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
+        <p>{this.props.windSpd} m/sec</p>
     </div>
     </span>
     )}
