@@ -19,29 +19,29 @@ class WeatherCard extends React.Component {
   renderSwitch(param) {
     switch(param) {
       case 'clear sky':
-        return <img alt={this.props.day} className="weatherImage" src={sun}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={sun}></img>;
       case 'light rain':
-        return <img alt={this.props.day} className="weatherImage"src={rainLight}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={rainLight}></img>;
       case 'moderate rain':
-        return <img alt={this.props.day} className="weatherImage"src={rainMed}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={rainMed}></img>;
       case 'heavy rain':
-        return <img alt={this.props.day} className="weatherImage"src={rainHeavy}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={rainHeavy}></img>;
       case 'overcast clouds':
-        return <img alt={this.props.day} className="weatherImage"src={overcast}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={overcast}></img>;
       case 'scattered clouds':
-        return <img alt={this.props.day} className="weatherImage"src={scatteredCloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={scatteredCloud}></img>;
       case 'broken clouds':
-        return <img alt={this.props.day} className="weatherImage"src={brokenCloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={brokenCloud}></img>;
       case 'few clouds':
-        return <img alt={this.props.day} className="weatherImage"src={fewCloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={fewCloud}></img>;
       case 'light snow':
-        return <img alt={this.props.day} className="weatherImage"src={snowLight}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={snowLight}></img>;
       case 'snow':
-          return <img alt={this.props.day} className="weatherImage"src={snow}></img>;
+          return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={snow}></img>;
       case 'heavy snow':
-          return <img alt={this.props.day} className="weatherImage"src={snowHeavy}></img>;
+          return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={snowHeavy}></img>;
       default:
-        return <img alt={this.props.day} className="weatherImage"src={cloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={cloud}></img>;
     }
   }
 
@@ -71,6 +71,7 @@ class WeatherCard extends React.Component {
         <div className="container">        
         <p className="weatherDescription">{this.props.description}</p>
         <p>{this.props.temp}°C</p>
+        <p className="feelsLikeTemp">feels ({this.props.feelsTemp}°C)</p>
         <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
         <p>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</p>
     </div>
