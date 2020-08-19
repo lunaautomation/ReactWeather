@@ -4,6 +4,9 @@ import rainLight from './svgs/rain-light.svg';
 import rainMed from './svgs/rain-med.svg';
 import rainHeavy from './svgs/rain-heavy.svg';
 import cloud from './svgs/cloud.svg';
+import brokenCloud from './svgs/brokencloud.svg';
+import scatteredCloud from './svgs/scatteredcloud.svg';
+import fewCloud from './svgs/fewcloud.svg'
 import snowLight from './svgs/snow-light.svg';
 import snow from './svgs/snow.svg';
 import snowHeavy from './svgs/snow-heavy.svg';
@@ -26,9 +29,11 @@ class WeatherCard extends React.Component {
       case 'overcast clouds':
         return <img alt={this.props.day} className="weatherImage"src={overcast}></img>;
       case 'scattered clouds':
-        return <img alt={this.props.day} className="weatherImage"src={cloud}></img>;
+        return <img alt={this.props.day} className="weatherImage"src={scatteredCloud}></img>;
       case 'broken clouds':
-        return <img alt={this.props.day} className="weatherImage"src={cloud}></img>;
+        return <img alt={this.props.day} className="weatherImage"src={brokenCloud}></img>;
+      case 'few clouds':
+        return <img alt={this.props.day} className="weatherImage"src={fewCloud}></img>;
       case 'light snow':
         return <img alt={this.props.day} className="weatherImage"src={snowLight}></img>;
       case 'snow':
