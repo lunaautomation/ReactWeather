@@ -1,14 +1,14 @@
 import React from 'react';
-import sun from './sun.svg';
-import rainLight from './rain-light.svg';
-import rainMed from './rain-med.svg';
-import rainHeavy from './rain-heavy.svg';
-import cloud from './cloud.svg';
-import snowLight from './snow-light.svg';
-import snow from './snow.svg';
-import snowHeavy from './snow-heavy.svg';
-import overcast from './overcast.svg';
-import arrow from './arrow.svg'
+import sun from './svgs/sun.svg';
+import rainLight from './svgs/rain-light.svg';
+import rainMed from './svgs/rain-med.svg';
+import rainHeavy from './svgs/rain-heavy.svg';
+import cloud from './svgs/cloud.svg';
+import snowLight from './svgs/snow-light.svg';
+import snow from './svgs/snow.svg';
+import snowHeavy from './svgs/snow-heavy.svg';
+import overcast from './svgs/overcast.svg';
+import arrow from './svgs/arrow.svg'
 
 
 class WeatherCard extends React.Component {
