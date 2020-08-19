@@ -64,10 +64,10 @@ class WeatherCard extends React.Component {
     <h4>{this.dayTime(this.props.day)}</h4>
       {this.renderSwitch(this.props.image)}         
         <div className="container">        
-        <p>{this.props.description}</p>
+        <p className="weatherDescription">{this.props.description}</p>
         <p>{this.props.temp}°C</p>
         <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
-        <p>{this.props.windSpd} m/sec</p>
+        <p>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</p>
     </div>
     </span>
     )}
