@@ -34,7 +34,6 @@ class APIresult extends React.Component {
   }
   
   getWeather(city) {
-    console.log('HERE'+city)
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},uk&units=metric&APPID=992838d6689bba64ea80c087ce5c31ce`)
       .then(res => res.json())
       .then(
@@ -55,7 +54,6 @@ class APIresult extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    console.log('API Render'+this.props.city);
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {

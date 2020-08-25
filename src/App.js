@@ -13,13 +13,11 @@ class App extends React.Component {
 
   handleChange(e) {
     this.setState({search: e.target.value});
-   console.log('change'+this.state.city);
   }
 
   handleSubmit(e) {      
     this.setState({city: this.state.search});
     e.preventDefault();
-    console.log('submit'+this.state.search);
   }
 
   callAPI(){    
