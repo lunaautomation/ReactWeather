@@ -62,14 +62,20 @@ class WeatherCard extends React.Component {
     return addZero(d.getHours())+':'+addZero(d.getMinutes());
   }
 
+  dayBlock(){
+
+  }
+
   render() {
     return (
     <span className="card">
+      {this.dayTime(this.props.day).toString() ==='00:00' &&
       <h4><b>{this.dayString(this.props.day)}</b></h4>
+  }
     <h4>{this.dayTime(this.props.day)}</h4>
       {this.renderSwitch(this.props.image)}         
-        <div className="container">        
-        <p className="weatherDescription">{this.props.description}</p>
+        
+      <div className="container">        
         <p>{this.props.temp}°C</p>
         <p className="feelsLikeTemp">feels ({this.props.feelsTemp}°C)</p>
         <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
