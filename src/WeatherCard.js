@@ -47,7 +47,7 @@ class WeatherCard extends React.Component {
   cardColourSwitch(param) {
     switch(param) {
       case '03:00':
-        return `#000033`;
+        return `#000066`;
       case '06:00':
         return "#0000cc";
       case '09:00':
@@ -61,7 +61,7 @@ class WeatherCard extends React.Component {
       case '21:00':
         return "#000066";
       default:
-        return "#000000";
+        return "#000066";
     }
   }
   dayString(date){
@@ -94,7 +94,7 @@ class WeatherCard extends React.Component {
       <div className="container">        
         <p>{this.props.temp}°C</p>
         <p className="feelsLikeTemp">feels ({this.props.feelsTemp}°C)</p>
-        <svg className="windDirection" alt={this.props.windSpd} xmlns={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></svg>
+        <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
         <p>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</p>
     </div>
     </td>

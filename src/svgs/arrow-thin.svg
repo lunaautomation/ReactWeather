@@ -8,7 +8,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="arrow.svg"
+   sodipodi:docname="arrow-thin.svg"
    xml:space="preserve"
    style="enable-background:new 0 0 15.304 15.304;"
    viewBox="0 0 15.304 15.304"
@@ -18,7 +18,7 @@
    version="1.1"><metadata
    id="metadata41"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
    id="defs39" /><sodipodi:namedview
    inkscape:document-rotation="0"
    inkscape:current-layer="Capa_1"
@@ -94,7 +94,4 @@
 <g
    id="g34">
 </g>
-<path
-   id="path118"
-   d="M 7.4023081,15.060822 C 7.1913194,14.845656 2.6868936,9.4130631 2.4822223,9.1269198 2.2291242,8.7730738 2.3017333,8.7544068 3.9312114,8.7544068 H 5.382339 v -4.271992 c 0,-3.89419454 0.00948,-4.27986273 0.1072084,-4.36099153 0.1575468,-0.13078809 4.2320449,-0.13078809 4.3896872,0 0.097768,0.0811127 0.1072739,0.45894957 0.1072739,4.26372033 v 4.1747208 h 1.3473675 c 1.115431,0 1.372217,0.017405 1.49172,0.1011082 0.122912,0.086091 0.133252,0.1222096 0.06962,0.243178 -0.180126,0.3424425 -4.3284559,5.7156014 -4.7282045,6.1242474 -0.2638746,0.269748 -0.5212869,0.280663 -0.7647054,0.03242 z"
-   style="fill:#ffffff;stroke-width:0.0648475" /></svg>
+</svg>

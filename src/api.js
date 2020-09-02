@@ -98,7 +98,7 @@ class APIresult extends React.Component {
                 {this.dayTime(item.dt_txt).toString() === "00:00" && (
                  
                     <tr className="breaker"><h1>
-                      {this.dayString(item.dt_txt)}
+                      {this.dayString(item.dt_txt)}  <br />
                     </h1>
                     
            </tr>
