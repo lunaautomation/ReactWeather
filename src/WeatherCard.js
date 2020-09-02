@@ -44,7 +44,26 @@ class WeatherCard extends React.Component {
         return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={cloud}></img>;
     }
   }
-
+  cardColourSwitch(param) {
+    switch(param) {
+      case '03:00':
+        return `#000033`;
+      case '06:00':
+        return "#0000cc";
+      case '09:00':
+        return "#1a1aff";
+      case '12:00':
+        return "#8080ff";
+      case '15:00':
+        return "#1a1aff";
+      case '18:00':
+        return "#0000cc";
+      case '21:00':
+        return "#000066";
+      default:
+        return "#000000";
+    }
+  }
   dayString(date){
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var d = new Date(date);
@@ -68,20 +87,17 @@ class WeatherCard extends React.Component {
 
   render() {
     return (
-    <span className="card">
-      {this.dayTime(this.props.day).toString() ==='00:00' &&
-      <h4><b>{this.dayString(this.props.day)}</b></h4>
-  }
+    <td className="card" 
+    style={{backgroundColor:this.cardColourSwitch(this.dayTime(this.props.day))}}>
     <h4>{this.dayTime(this.props.day)}</h4>
-      {this.renderSwitch(this.props.image)}         
-        
+      {this.renderSwitch(this.props.image)}
       <div className="container">        
         <p>{this.props.temp}°C</p>
         <p className="feelsLikeTemp">feels ({this.props.feelsTemp}°C)</p>
-        <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
+        <svg className="windDirection" alt={this.props.windSpd} xmlns={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></svg>
         <p>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</p>
     </div>
-    </span>
+    </td>
     )}
 }
 export default WeatherCard;
