@@ -11,7 +11,7 @@ import snowLight from './svgs/snow-light.svg';
 import snow from './svgs/snow.svg';
 import snowHeavy from './svgs/snow-heavy.svg';
 import overcast from './svgs/overcast.svg';
-import arrow from './svgs/arrow.svg'
+import arrow from './svgs/arrow-thin.svg'
 
 
 class WeatherCard extends React.Component {
@@ -64,6 +64,26 @@ class WeatherCard extends React.Component {
         return "#000066";
     }
   }
+  winSpeedSwitch(param) {
+    if(param <= 30){
+      return '7em'
+    }
+    else if (param <=20){
+      return '5em'
+    }
+    else if (param <=15){
+      return '4em'
+    }
+    else if (param <=10){
+      return '3em'
+    }
+    else if (param <=5){
+      return '2em'
+    }
+    else if (param <=2){
+      return '1em'
+    }
+  }
   dayString(date){
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var d = new Date(date);
@@ -81,9 +101,6 @@ class WeatherCard extends React.Component {
     return addZero(d.getHours())+':'+addZero(d.getMinutes());
   }
 
-  dayBlock(){
-
-  }
 
   render() {
     return (
@@ -91,12 +108,12 @@ class WeatherCard extends React.Component {
     style={{backgroundColor:this.cardColourSwitch(this.dayTime(this.props.day))}}>
     <h4>{this.dayTime(this.props.day)}</h4>
       {this.renderSwitch(this.props.image)}
-      <div className="container">        
-        <p>{this.props.temp}°C</p>
-        <p className="feelsLikeTemp">feels ({this.props.feelsTemp}°C)</p>
-        <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`}}></img>
-        <p>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</p>
-    </div>
+      <table className="container">        
+        <tr>{this.props.temp}°C</tr>
+        <tr className="feelsLikeTemp"> feels ({this.props.feelsTemp}°C)</tr>
+        <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`, height: this.cardColourSwitch(this.props.windSpd), width:this.cardColourSwitch(this.props.windSpd)}}></img>
+        <tr>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</tr>
+    </table>
     </td>
     )}
 }
