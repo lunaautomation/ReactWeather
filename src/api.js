@@ -78,9 +78,9 @@ class APIresult extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div><tr>Error: {error.message}</tr></div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div><tr>Loading...</tr></div>;
     } else {
       return (
         <table className="Block">
