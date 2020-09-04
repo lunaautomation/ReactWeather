@@ -24,11 +24,12 @@ h1{
 }
 h4{
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   margin: 1px;
 }
 
 tr{
+  font-size: 0.75em;
   page-break-before: avoid;
 }
 tr.breaker {
@@ -68,8 +69,8 @@ form{
   margin-bottom: 1em;
   padding-top: 1em;
   padding-bottom: 1em;
-  height: 2em;
-  width: 2em;
+  height: 110%;
+  width: 110%;
   align-items: center;
   vertical-align: middle;
   text-align: center;

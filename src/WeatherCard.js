@@ -15,37 +15,37 @@ import arrow from './svgs/arrow-thin.svg'
 
 
 class WeatherCard extends React.Component {
-  
+
   renderSwitch(param) {
-    switch(param) {
+    switch (param) {
       case 'clear sky':
         return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={sun}></img>;
       case 'light rain':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={rainLight}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={rainLight}></img>;
       case 'moderate rain':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={rainMed}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={rainMed}></img>;
       case 'heavy rain':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={rainHeavy}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={rainHeavy}></img>;
       case 'overcast clouds':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={overcast}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={overcast}></img>;
       case 'scattered clouds':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={scatteredCloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={scatteredCloud}></img>;
       case 'broken clouds':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={brokenCloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={brokenCloud}></img>;
       case 'few clouds':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={fewCloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={fewCloud}></img>;
       case 'light snow':
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={snowLight}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={snowLight}></img>;
       case 'snow':
-          return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={snow}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={snow}></img>;
       case 'heavy snow':
-          return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={snowHeavy}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={snowHeavy}></img>;
       default:
-        return <img alt={this.props.description} title={this.props.description} className="weatherImage"src={cloud}></img>;
+        return <img alt={this.props.description} title={this.props.description} className="weatherImage" src={cloud}></img>;
     }
   }
   cardColourSwitch(param) {
-    switch(param) {
+    switch (param) {
       case '03:00':
         return `#000066`;
       case '06:00':
@@ -64,33 +64,34 @@ class WeatherCard extends React.Component {
         return "#000066";
     }
   }
-  winSpeedSwitch(param) {
-    if(param <= 30){
-      return '7em'
+  winSpeedSwitch(input) {
+    var param = parseInt(input)
+    if (param <= 2) {
+      return 0.4
     }
-    else if (param <=20){
-      return '5em'
+    else if (param <= 5) {
+      return 0.5
     }
-    else if (param <=15){
-      return '4em'
+    else if (param <= 10) {
+      return 0.8
     }
-    else if (param <=10){
-      return '3em'
+    else if (param <= 15) {
+      return 0.9
     }
-    else if (param <=5){
-      return '2em'
+    else if (param <= 20) {
+      return 1
     }
-    else if (param <=2){
-      return '1em'
+    else if (param <= 30) {
+      return 1.2
     }
   }
-  dayString(date){
+  dayString(date) {
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var d = new Date(date);
     return days[d.getDay()];
   }
 
-  dayTime(date){
+  dayTime(date) {
     function addZero(i) {
       if (i < 10) {
         i = "0" + i;
@@ -98,23 +99,25 @@ class WeatherCard extends React.Component {
       return i;
     }
     var d = new Date(date);
-    return addZero(d.getHours())+':'+addZero(d.getMinutes());
+    return addZero(d.getHours()) + ':' + addZero(d.getMinutes());
   }
 
 
   render() {
     return (
-    <td className="card" 
-    style={{backgroundColor:this.cardColourSwitch(this.dayTime(this.props.day))}}>
-    <h4>{this.dayTime(this.props.day)}</h4>
-      {this.renderSwitch(this.props.image)}
-      <table className="container">        
-        <tr>{this.props.temp}°C</tr>
-        <tr className="feelsLikeTemp"> feels ({this.props.feelsTemp}°C)</tr>
-        <img className="windDirection" alt={this.props.windSpd} src={arrow} style={{transform: `rotate(${this.props.windDir}deg)`, height: this.cardColourSwitch(this.props.windSpd), width:this.cardColourSwitch(this.props.windSpd)}}></img>
-        <tr>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</tr>
-    </table>
-    </td>
-    )}
+      <td className="card"
+        style={{ backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)) }}>
+        <h4>{this.dayTime(this.props.day)}</h4>
+        {this.renderSwitch(this.props.image)}
+        <table className="container">
+          <tr>{this.props.temp}°C</tr>
+          <tr className="feelsLikeTemp"> feels ({this.props.feelsTemp}°C)</tr>
+          <img className="windDirection" title={`${this.props.windSpd} m/sec`} alt={this.props.windSpd} src={arrow} style={{ transform: `scale(${this.winSpeedSwitch(this.props.windSpd)}) rotate(${this.props.windDir}deg)`}} ></img>
+    
+          <tr>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</tr>
+        </table>
+      </td>
+    )
+  }
 }
 export default WeatherCard;
