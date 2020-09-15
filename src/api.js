@@ -78,45 +78,48 @@ class APIresult extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
-      return <div><tr>Error: {error.message}</tr></div>;
+      return (
+        <div>
+          <tr>Error: {error.message}</tr>
+        </div>
+      );
     } else if (!isLoaded) {
-      return <div><tr>Loading...</tr></div>;
+      return (
+        <div>
+          <tr>Loading...</tr>
+        </div>
+      );
     } else {
       return (
         <table className="Block">
           <tr>
-          {items ? (
-            items.map((item) => (
-             <>                {item===items[0] && (
-                 
-              <h1>
-                {this.dayString(item.dt_txt)}
-              </h1>
-     
-          )}
-
-                {this.dayTime(item.dt_txt).toString() === "00:00" && (
-                 
-                    <tr className="breaker"><h1>
-                      {this.dayString(item.dt_txt)}  <br />
-                    </h1>
-                    
-           </tr>
-                )}
-                <WeatherCard
-                  day={item.dt_txt}
-                  image={item.weather[0].description}
-                  description={item.weather[0].description}
-                  temp={item.main.temp}
-                  feelsTemp={item.main.feels_like}
-                  windDir={item.wind.deg}
-                  windSpd={item.wind.speed}
-                ></WeatherCard>
-              </>
-            ))
-          ) : (
-            <p fontSize="30px">Location not found!</p>
-          )}
+            {items ? (
+              items.map((item) => (
+                <>
+                  {" "}
+                  {item === items[0] && <h1>{this.dayString(item.dt_txt)}</h1>}
+                  {this.dayTime(item.dt_txt).toString() === "00:00" && (
+                    <tr className="breaker">
+                      <h1>
+                        {this.dayString(item.dt_txt)} <br />
+                      </h1>
+                    </tr>
+                  )}
+                  <WeatherCard
+                    day={item.dt_txt}
+                    image={item.weather[0].description}
+                    description={item.weather[0].description}
+                    temp={item.main.temp}
+                    moisture={item.main.humidity}
+                    feelsTemp={item.main.feels_like}
+                    windDir={item.wind.deg}
+                    windSpd={item.wind.speed}
+                  ></WeatherCard>
+                </>
+              ))
+            ) : (
+              <p fontSize="30px">Location not found!</p>
+            )}
           </tr>
         </table>
       );
