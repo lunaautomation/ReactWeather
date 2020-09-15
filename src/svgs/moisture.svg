@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="moisture.svg"
+   id="svg4043"
+   version="1.1"
+   viewBox="-2 0 512 512">
+  <metadata
+     id="metadata4049">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4047" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     inkscape:current-layer="svg4043"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="256"
+     inkscape:cx="256"
+     inkscape:zoom="1.4511719"
+     showgrid="false"
+     id="namedview4045"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <path
+     style="stroke-width:9.60885"
+     id="path3995"
+     fill="#a0ecff"
+     d="m 486.4187,325.49009 c 0,99.99814 -101.69646,181.06235 -227.14579,181.06235 -125.44944,0 -227.145891,-81.06421 -227.145891,-181.06235 0,-65.61542 97.828701,-194.43335 165.051781,-275.229438 29.51256,-35.38808 94.67561,-35.38808 124.14613,0 C 388.59004,131.05674 486.4187,259.87467 486.4187,325.49009 Z m 0,0" />
+  <path
+     style="stroke-width:9.60885"
+     id="path3997"
+     fill="#60daff"
+     d="m 486.4187,325.48992 c 0,99.96459 -101.6124,181.06235 -227.10379,181.06235 -31.44645,0 -61.42147,-5.12728 -88.66384,-14.34294 81.43283,-27.47937 138.52406,-91.82133 138.52406,-166.71941 0,-57.37158 -74.74832,-163.03318 -138.43998,-242.689822 9.08079,-11.427475 17.99342,-22.285139 26.40156,-32.439073 29.51256,-35.455167 94.7177,-35.555712 124.23019,-0.100373 67.26512,80.796088 165.0518,209.614018 165.0518,275.229438 z m 0,0" />
+</svg>

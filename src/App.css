@@ -17,18 +17,18 @@
 header {
   padding-bottom: 200px;
 }
-h1{
+h1 {
   text-align: center;
   font-size: 4em;
   margin: 1px;
 }
-h4{
+h4 {
   text-align: center;
   font-size: 3em;
   margin: 1px;
 }
 
-tr{
+tr {
   font-size: 0.75em;
   page-break-before: avoid;
 }
@@ -48,23 +48,23 @@ p {
   height: 2%;
 }
 
-.weatherDescription{
+.weatherDescription {
   font-size: xx-small;
   display: inline;
   margin: 0.1em;
 }
 
-input{
+input {
   background-color: #000000;
   color: wheat;
   border-radius: 60px 60px 60px 25px;
 }
 
-form{
+form {
   background-color: #000000;
 }
 
-.windDirection{
+.windDirection {
   margin-top: 1em;
   margin-bottom: 1em;
   padding-top: 1em;
@@ -76,7 +76,7 @@ form{
   text-align: center;
 }
 
-.Block{
+.Block {
   max-width: 80%;
   min-height: 10vh;
   display: flex;
@@ -89,14 +89,14 @@ form{
   page-break-inside: auto;
 }
 
-.weatherImage{
+.weatherImage {
   padding-top: 0em;
   height: 8em;
   width: 8em;
 }
 
-.feelsLikeTemp{
-  color: whitesmoke
+.feelsLikeTemp {
+  color: whitesmoke;
 }
 
 .App-header {
@@ -108,10 +108,9 @@ form{
   justify-content: center;
   font-size: 8em;
   color: white;
- 
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 5vw;
   height: 35em;
@@ -120,7 +119,7 @@ form{
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -131,7 +130,7 @@ form{
 .App-link {
   color: #61dafb;
 }
-button{
+button {
   border-radius: 60px 60px 60px 60px;
 
   font-size: 8px;
