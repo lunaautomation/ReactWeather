@@ -104,8 +104,8 @@ form {
 
 .weatherImage {
   padding-top: 0em;
-  height: 8em;
-  width: 8em;
+  height: 7vh;
+  width: 7vw;
 }
 
 .feelsLikeTemp {
