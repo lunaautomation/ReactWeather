@@ -97,7 +97,7 @@ class APIresult extends React.Component {
               items.map((item) => (
                 <>
                   {" "}
-                  {item === items[0] && <h1>{this.dayString(item.dt_txt)}</h1>}
+                
                   {this.dayTime(item.dt_txt).toString() === "00:00" && (
                     <tr className="breaker">
                       <h1>
