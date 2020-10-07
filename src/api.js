@@ -92,7 +92,7 @@ class APIresult extends React.Component {
     } else {
       return (
         <table className="Block">
-          <tr>
+          <span>
             {items ? (
               items.map((item) => (
                 <>
@@ -114,13 +114,14 @@ class APIresult extends React.Component {
                     feelsTemp={item.main.feels_like}
                     windDir={item.wind.deg}
                     windSpd={item.wind.speed}
+                    pressure={item.main.pressure}
                   ></WeatherCard>
                 </>
               ))
             ) : (
               <p fontSize="30px">Location not found!</p>
             )}
-          </tr>
+          </span>
         </table>
       );
     }
