@@ -219,7 +219,7 @@ class WeatherCard extends React.Component {
         <table className="container">
           {this.renderSwitch(this.props.image)}
           <tr>{this.props.temp}°C</tr>
-          <tr className="feelsLikeTemp"> feels ({this.props.feelsTemp}°C)</tr>
+          <tr className="feelsLikeTemp"> feels {this.props.feelsTemp}°C</tr>
           <img
             className="windDirection"
             title={`${this.props.windSpd} m/sec`}
