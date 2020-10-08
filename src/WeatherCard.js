@@ -150,13 +150,15 @@ class WeatherCard extends React.Component {
   winSpeedSwitch(input) {
     var param = parseInt(input);
     if (param <= 2) {
-      return 0.4;
+      return 0.3;
     } else if (param <= 5) {
+      return 0.4;
+    } else if (param <= 8) {
       return 0.5;
     } else if (param <= 10) {
-      return 0.8;
+      return 0.6;
     } else if (param <= 15) {
-      return 0.9;
+      return 0.7;
     } else if (param <= 20) {
       return 1;
     } else if (param <= 30) {
@@ -213,8 +215,9 @@ class WeatherCard extends React.Component {
         }}
       >
         <h4>{this.dayTime(this.props.day)}</h4>
-        {this.renderSwitch(this.props.image)}
+
         <table className="container">
+          {this.renderSwitch(this.props.image)}
           <tr>{this.props.temp}°C</tr>
           <tr className="feelsLikeTemp"> feels ({this.props.feelsTemp}°C)</tr>
           <img
@@ -228,14 +231,8 @@ class WeatherCard extends React.Component {
               )}) rotate(${this.props.windDir}deg)`,
             }}
           ></img>
- <img
-            className="moistureLevel"
-            title={`${this.props.moisture} m/sec`}
-            alt={this.props.moisture}
-            src={moisture}
-            opacity = {this.moistureSwitch(this.props.moisture)}
-          ></img>
-          <tr>{parseFloat(this.props.windSpd).toFixed(2)} m/sec</tr>
+          <tr>Moisture {this.props.moisture} </tr>
+          <tr>Pressure {this.props.pressure} </tr>
         </table>
       </td>
     );

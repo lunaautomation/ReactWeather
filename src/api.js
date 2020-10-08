@@ -92,12 +92,12 @@ class APIresult extends React.Component {
     } else {
       return (
         <table className="Block">
-          <tr>
+          <span>
             {items ? (
               items.map((item) => (
                 <>
                   {" "}
-                  {item === items[0] && <h1>{this.dayString(item.dt_txt)}</h1>}
+                
                   {this.dayTime(item.dt_txt).toString() === "00:00" && (
                     <tr className="breaker">
                       <h1>
@@ -114,13 +114,14 @@ class APIresult extends React.Component {
                     feelsTemp={item.main.feels_like}
                     windDir={item.wind.deg}
                     windSpd={item.wind.speed}
+                    pressure={item.main.pressure}
                   ></WeatherCard>
                 </>
               ))
             ) : (
               <p fontSize="30px">Location not found!</p>
             )}
-          </tr>
+          </span>
         </table>
       );
     }
