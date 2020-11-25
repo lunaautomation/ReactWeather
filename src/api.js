@@ -119,7 +119,7 @@ class APIresult extends React.Component {
                 </>
               ))
             ) : (
-              <p fontSize="30px">Location not found!</p>
+              <p fontSize="30px">Please select a valid location</p>
             )}
           </span>
         </table>
