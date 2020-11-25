@@ -1,19 +1,16 @@
-@media screen and (max-width: 600px) {
-  .Block {
-    max-width: 90%;
-    min-height: 10vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    font-size: 2px;
-    color: white;
-    page-break-inside: auto;
-  },
-  td{
-display: flex;
-  }
+
+
+.Block {
+  max-width: 90%;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5vh;
+  color: white;
+  page-break-inside: auto;
 }
 .App {
   text-align: center;
@@ -46,7 +43,7 @@ h4 {
 }
 
 tr {
-  font-size: 0.9em;
+  font-size: 0.7em;
   page-break-before: avoid;
 }
 tr.breaker {
@@ -89,18 +86,7 @@ form {
   text-align: center;
 }
 
-.Block {
-  max-width: 90%;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.5vh;
-  color: white;
-  page-break-inside: auto;
-}
+
 
 .weatherImage {
   padding-top: 0em;
