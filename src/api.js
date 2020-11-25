@@ -109,9 +109,9 @@ class APIresult extends React.Component {
                     day={item.dt_txt}
                     image={item.weather[0].description}
                     description={item.weather[0].description}
-                    temp={item.main.temp}
+                    temp={Math.round(item.main.temp)}
                     moisture={item.main.humidity}
-                    feelsTemp={item.main.feels_like}
+                    feelsTemp={Math.round(item.main.feels_like)}
                     windDir={item.wind.deg}
                     windSpd={item.wind.speed}
                     pressure={item.main.pressure}
