@@ -12,7 +12,6 @@ import snow from "./svgs/snow.svg";
 import snowHeavy from "./svgs/snow-heavy.svg";
 import overcast from "./svgs/overcast.svg";
 import arrow from "./svgs/arrow-thin.svg";
-import moisture from "./svgs/moisture.svg";
 
 class WeatherCard extends React.Component {
   renderSwitch(param) {
