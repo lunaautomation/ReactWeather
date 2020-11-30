@@ -31,7 +31,7 @@ class App extends React.Component {
       <input type="text" onChange={this.handleChange} /> 
       <button type="submit" className="btn btn-success" >Go</button>
       </form>     
-      <span className="App-header">  
+      <span >  
         {this.callAPI()}
       </span>
     </span>

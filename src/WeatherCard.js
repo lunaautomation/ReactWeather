@@ -207,18 +207,17 @@ class WeatherCard extends React.Component {
 
   render() {
     return (
-      <td
-        className="card"
+      <div
         style={{
           backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)),
         }}
       >
         <h4>{this.dayTime(this.props.day)}</h4>
 
-        <table className="container">
+        <div >
           {this.renderSwitch(this.props.image)}
-          <tr>{this.props.temp}°C</tr>
-          <tr className="feelsLikeTemp"> feels ({this.props.feelsTemp}°C)</tr>
+          <p>{this.props.temp}°C</p>
+          <p className="feelsLikeTemp">feels</p><p>({this.props.feelsTemp}°C)</p>
           <img
             className="windDirection"
             title={`${this.props.windSpd} m/sec`}
@@ -230,10 +229,10 @@ class WeatherCard extends React.Component {
               )}) rotate(${this.props.windDir}deg)`,
             }}
           ></img>
-          <tr>Moisture {this.props.moisture} </tr>
-          <tr>Pressure {this.props.pressure} </tr>
-        </table>
-      </td>
+          <p>Moisture {this.props.moisture} </p>
+          <p>Pressure {this.props.pressure} </p>
+        </div>
+      </div>
     );
   }
 }
