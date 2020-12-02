@@ -91,21 +91,19 @@ class APIresult extends React.Component {
       );
     } else {
       return (
-        <table className="Block">
-          <span>
+          <span className="container">
             {items ? (
               items.map((item) => (
-                <>
-                  {" "}
-                
+                <>            
                   {this.dayTime(item.dt_txt).toString() === "00:00" && (
-                    <tr className="breaker">
+                    <div className="breaker">
                       <h1>
                         {this.dayString(item.dt_txt)} <br />
                       </h1>
-                    </tr>
+                    </div>
                   )}
                   <WeatherCard
+                    className="item"
                     day={item.dt_txt}
                     image={item.weather[0].description}
                     description={item.weather[0].description}
@@ -122,7 +120,6 @@ class APIresult extends React.Component {
               <p fontSize="30px">Please select a valid location</p>
             )}
           </span>
-        </table>
       );
     }
   }

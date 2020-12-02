@@ -1,5 +1,37 @@
+.grid {
+  display: grid;
+  /* This is better for small screens, once min() is better supported */
+  /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+  grid-gap: 1rem;
+  /* This is the standardized property now, but has slightly less support */
+  /* gap: 1rem */
+  font-size: 0.5vh;
+  min-height: 10vh;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background-color: #000000;
+  font-size: 0.5vh;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(1fr,auto) ;
+  grid-template-rows: minmax(0.5fr,auto) ;
+  grid-row-gap: 1rem;
+}
+.item {
 
-
+  width: 0.5vw;
+  height: 1vh;
+  padding: 2vh;
+}
+.breaker {
+  height: 10px;
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
 .Block {
   max-width: 90%;
   min-height: 10vh;
@@ -15,7 +47,6 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  margin-bottom: 100px;
 }
 
 .App-logo {
@@ -33,12 +64,12 @@ header {
 }
 h1 {
   text-align: center;
-  font-size: 5em;
+  font-size: 12px;
   margin: 1px;
 }
 h4 {
   text-align: center;
-  font-size: 3em;
+  font-size: .33em;
   margin: 1px;
 }
 
@@ -46,26 +77,21 @@ tr {
   font-size: 0.7em;
   page-break-before: avoid;
 }
-tr.breaker {
-  display: block;
-  page-break-before: always !important;
-}
 
 p {
-  text-anchor: end;
+  text-align: center;
   color: whitesmoke;
-  font-size: 1rem;
+  font-size: .22em;
   font-family: Arial;
   margin: 0;
-  vertical-align: bottom;
-  display: inline-block;
   height: 2%;
 }
 
 .weatherDescription {
   font-size: xx-small;
-  display: inline;
+  display: grid;
   margin: 0.1rem;
+  color: wheat;
 }
 
 input {
@@ -79,10 +105,8 @@ form {
 }
 
 .windDirection {
-  height: 70%;
-  width: 70%;
-  align-items: center;
-  vertical-align: middle;
+  height: .5fr;
+  width: .5fr;
   text-align: center;
 }
 
@@ -92,6 +116,8 @@ form {
   padding-top: 0em;
   height: 7vh;
   width: 7vw;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .feelsLikeTemp {
@@ -109,12 +135,12 @@ form {
   color: white;
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 25px 25px 25px 25px;
+  box-shadow: 0 4vw 8vh 0 rgba(0, 0, 0, 0.2);
+  border-radius: 25vh 25vw 25vh 25vw;
   transition: 0.3s;
-  width: 5vw;
-  height: 2vh;
-  padding: 2px;
+  width: 0.5vw;
+  height: 1vh;
+  padding: 2vh;
   page-break-before: always !important;
 }
 
