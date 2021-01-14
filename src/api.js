@@ -91,7 +91,7 @@ class APIresult extends React.Component {
       );
     } else {
       return (
-          <span className="container">
+          <span className="grid-container">
             {items ? (
               items.map((item) => (
                 <>            

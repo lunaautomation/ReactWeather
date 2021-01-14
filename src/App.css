@@ -1,4 +1,54 @@
+.grid-container {
+  display: grid;
+  color: white;
+  height: 1000px;
+  grid-template-columns:repeat(8 ,1fr);
+  grid-template-rows: repeat(6, 0.5fr 1fr) ;
+  gap: 0px 0px;
+  grid-template-areas:
+  ". . . Breaker . . . ."
+  "Midnight Three Six Nine Noon Threepm Sixpm Ninepm";
+}
 
+.Midnight {
+  grid-area: Midnight;
+}
+
+.Three {
+  grid-area: Three;
+}
+
+.Six {
+  grid-area: Six;
+}
+
+.Nine{
+  grid-area: Nine;
+}
+
+.Noon {
+  grid-area: Noon;
+}
+
+.One {
+  grid-area: One;
+}
+
+.Threepm {
+  grid-area: Threepm;
+}
+
+.Sixpm {
+  grid-area: Sixpm;
+}
+
+.Ninepm {
+  grid-area: Ninepm;
+}
+
+.Breaker {
+  grid-area: Breaker;
+}
 
 .container {
   background-color: #000000;
@@ -9,17 +59,22 @@
   align-items: center;
   justify-content: stretch;
   display: grid;
-  grid-template-columns: minmax(1fr,auto) ;
-  grid-template-rows: minmax(0.5fr,auto) ;
+  grid-template-areas: "midnight, threeam, sixam, nineam, noon, threepm , sixpm, ninepm";
   grid-row-gap: 1px;
 }
-.item {
 
+#root{
+  background-color: #000000;
+}
+.item {
   width: 0.5vw;
 }
 .breaker {
+  background-color: #000000;
   grid-column-start: 1;
   grid-column-end: 9;
+  text-align: center;
+  font-size: x-large;
 }
 .Block {
   max-width: 100%;
@@ -38,11 +93,10 @@
   min-height: 10vh;
 }
 
-
 header {
   padding-bottom: 200px;
 }
-footer{
+footer {
   min-height: min-content;
   color: whitesmoke;
   background-color: #000000;
@@ -50,12 +104,12 @@ footer{
 }
 h1 {
   text-align: center;
-  font-size: 12px;
+  font-size: x-large;
   margin: 1px;
 }
 h4 {
   text-align: center;
-  font-size: .33em;
+  font-size: 0.33em;
   margin: 1px;
 }
 
@@ -67,7 +121,7 @@ tr {
 p {
   text-align: center;
   color: whitesmoke;
-  font-size: .22em;
+  font-size: 0.99em;
   font-family: Arial;
   margin: 0;
   height: 2%;
@@ -93,12 +147,10 @@ form {
 }
 
 .windDirection {
-  height: .5fr;
-  width: .5fr;
+  height: 0.5fr;
+  width: 0.5fr;
   text-align: center;
 }
-
-
 
 .weatherImage {
   padding-top: 0em;
@@ -112,9 +164,7 @@ form {
   color: whitesmoke;
 }
 
-.weatherContainer{
-  height: auto;
-  
+.weatherContainer {
   background-color: #000000;
 }
 

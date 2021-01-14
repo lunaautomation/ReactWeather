@@ -146,6 +146,28 @@ class WeatherCard extends React.Component {
         return "#000066";
     }
   }
+  cardClassSwitch(param) {
+    switch (param) {
+      case "00:00":
+        return "Midnight";
+      case "03:00":
+        return "Three";
+      case "06:00":
+        return "Six";
+      case "09:00":
+        return "Nine";
+      case "12:00":
+        return "Noon";
+      case "15:00":
+        return "Threepm";
+      case "18:00":
+        return "Sixpm";
+      case "21:00":
+        return "Ninepm";
+      default:
+        return "break";
+    }
+  }
   winSpeedSwitch(input) {
     var param = parseInt(input);
     if (param <= 2) {
@@ -212,12 +234,13 @@ class WeatherCard extends React.Component {
           backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)),
         }}
       >
-        <h4>{this.dayTime(this.props.day)}</h4>
+        <h1>{this.dayTime(this.props.day)}</h1>
 
-        <div >
+        <div>
           {this.renderSwitch(this.props.image)}
           <p>{this.props.temp}°C</p>
-          <p className="feelsLikeTemp">feels</p><p>({this.props.feelsTemp}°C)</p>
+          <p className="feelsLikeTemp">feels</p>
+          <p>({this.props.feelsTemp}°C)</p>
           <img
             className="windDirection"
             title={`${this.props.windSpd} m/sec`}
