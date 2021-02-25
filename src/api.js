@@ -94,10 +94,10 @@ class APIresult extends React.Component {
           <span className="grid-container">
             {items ? (
               items.map((item) => (
-                <>            
+                <>           
                   {this.dayTime(item.dt_txt).toString() === "00:00" && (
-                    <div className="Breaker">
-                      <h1>
+                    <div className="breaker">
+                      <h1>  
                         {this.dayString(item.dt_txt)} <br />
                       </h1>
                     </div>
