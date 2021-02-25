@@ -1,12 +1,11 @@
 .grid-container {
   display: grid;
   color: white;
-  height: 1000px;
+  height: 100%;
   grid-template-columns:repeat(8 ,1fr);
   grid-template-rows: repeat(6, 0.5fr 1fr) ;
-  gap: 0px 0px;
+  gap: 6px 7px;
   grid-template-areas:
-  ". . . Breaker . . . ."
   "Midnight Three Six Nine Noon Threepm Sixpm Ninepm";
 }
 
@@ -47,7 +46,9 @@
 }
 
 .Breaker {
-  grid-area: Breaker;
+  grid-row-end: 1;
+  grid-row-end: 9;
+  
 }
 
 .container {
@@ -78,6 +79,7 @@
 }
 .Block {
   max-width: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

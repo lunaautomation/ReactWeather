@@ -32,7 +32,11 @@ class App extends React.Component {
       <button type="submit" className="btn btn-success" >Go</button>
       </form>     
       <span className="weatherContainer">  
-        {this.callAPI()}
+        {this.state.city? (this.callAPI()):(
+<span className="container">
+            <h1 color='white'>Please select a location</h1>
+            </span>
+          )}
       </span>
     </span>
     );

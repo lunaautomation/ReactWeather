@@ -165,7 +165,7 @@ class WeatherCard extends React.Component {
       case "21:00":
         return "Ninepm";
       default:
-        return "break";
+        return "busted";
     }
   }
   winSpeedSwitch(input) {
@@ -229,8 +229,8 @@ class WeatherCard extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
+      <div   
+      style={{
           backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)),
         }}
       >
