@@ -93,9 +93,9 @@ class APIresult extends React.Component {
       return (
           <span className="grid-container">
             {items ? (
-              items.map((item) => (
-                <>           
-                  {this.dayTime(item.dt_txt).toString() === "00:00" && (
+              items.map((item,index) => (
+                <>         
+                  {(index === 0 || this.dayTime(item.dt_txt).toString() === "00:00") && (
                     <div className="breaker">
                       <h1>  
                         {this.dayString(item.dt_txt)} <br />

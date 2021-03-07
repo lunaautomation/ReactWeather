@@ -14,6 +14,7 @@
   grid-template-rows: max-content;
   justify-content: end;
   align-items:center;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .Midnight {
@@ -133,8 +134,8 @@ tr {
 p {
   text-align: center;
   color: whitesmoke;
-  font-size: 0.99em;
-  font-family: Arial;
+  font-size: .6em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin: 0;
   height: 1fr;
 }

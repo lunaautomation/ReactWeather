@@ -234,7 +234,7 @@ class WeatherCard extends React.Component {
           backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)),
         }}
       >
-        <h1>{this.dayTime(this.props.day)}</h1>
+        <h3>{this.dayTime(this.props.day)}</h3>
         
           <div>{this.renderSwitch(this.props.image)}</div>
           <p>{this.props.temp}°C feels {this.props.feelsTemp}°C</p>
