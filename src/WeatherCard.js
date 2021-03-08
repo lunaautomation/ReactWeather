@@ -151,11 +151,11 @@ class WeatherCard extends React.Component {
       case "00:00":
         return "Midnight";
       case "03:00":
-        return "Three";
+        return "Threeam";
       case "06:00":
-        return "Six";
+        return "Sixam";
       case "09:00":
-        return "Nine";
+        return "Nineam";
       case "12:00":
         return "Noon";
       case "15:00":
@@ -229,12 +229,12 @@ class WeatherCard extends React.Component {
 
   render() {
     return (
-      <div className="itemGrid"  
+      <div className= {`${this.props.className} ${"itemGrid"}`}
       style={{
           backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)),
         }}
       >
-        <h3>{this.dayTime(this.props.day)}</h3>
+        <h1>{this.dayTime(this.props.day)}</h1>
         
           <div>{this.renderSwitch(this.props.image)}</div>
           <p>{this.props.temp}°C feels {this.props.feelsTemp}°C</p>

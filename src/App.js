@@ -34,7 +34,7 @@ class App extends React.Component {
       <span className="weatherContainer">  
         {this.state.city? (this.callAPI()):(
 <span className="container">
-            <h1 color='white'>Please select a location</h1>
+            <h4 color='white' className="Breaker">Please select a location</h4>
             </span>
           )}
       </span>

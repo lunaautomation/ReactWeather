@@ -75,6 +75,29 @@ class APIresult extends React.Component {
     var d = new Date(date);
     return days[d.getDay()];
   }
+
+  cardClassSwitch(param) {
+    switch (param) {
+      case "00:00":
+        return "Midnight";
+      case "03:00":
+        return "Threeam";
+      case "06:00":
+        return "Sixam";
+      case "09:00":
+        return "Nineam";
+      case "12:00":
+        return "Noon";
+      case "15:00":
+        return "Threepm";
+      case "18:00":
+        return "Sixpm";
+      case "21:00":
+        return "Ninepm";
+      default:
+        return "busted";
+    }
+  }
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
@@ -91,18 +114,17 @@ class APIresult extends React.Component {
       );
     } else {
       return (
-          <span className="grid-container">
+          <span className="container">
             {items ? (
               items.map((item,index) => (
                 <>         
                   {(index === 0 || this.dayTime(item.dt_txt).toString() === "00:00") && (
-                    <div className="breaker">
-                      <h1>  
-                        {this.dayString(item.dt_txt)} <br />
-                      </h1>
+                    <div className="Breaker">
+                      <h1>{this.dayString(item.dt_txt)}</h1>
                     </div>
                   )}
                   <WeatherCard
+                    className={this.cardClassSwitch(this.dayTime(item.dt_txt))}
                     day={item.dt_txt}
                     image={item.weather[0].description}
                     description={item.weather[0].description}
@@ -116,7 +138,7 @@ class APIresult extends React.Component {
                 </>
               ))
             ) : (
-              <p fontSize="30px">Please select a valid location</p>
+              <h1 fontSize="xxx-large">Please select a valid location</h1>
             )}
           </span>
       );
