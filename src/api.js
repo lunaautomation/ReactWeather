@@ -114,33 +114,34 @@ class APIresult extends React.Component {
       );
     } else {
       return (
-          <span className="container">
-            {items ? (
-              items.map((item,index) => (
-                <>         
-                  {(index === 0 || this.dayTime(item.dt_txt).toString() === "00:00") && (
-                    <div className="Breaker">
-                      <h1>{this.dayString(item.dt_txt)}</h1>
-                    </div>
-                  )}
-                  <WeatherCard
-                    className={this.cardClassSwitch(this.dayTime(item.dt_txt))}
-                    day={item.dt_txt}
-                    image={item.weather[0].description}
-                    description={item.weather[0].description}
-                    temp={Math.round(item.main.temp)}
-                    moisture={item.main.humidity}
-                    feelsTemp={Math.round(item.main.feels_like)}
-                    windDir={item.wind.deg}
-                    windSpd={item.wind.speed}
-                    pressure={item.main.pressure}
-                  ></WeatherCard>
-                </>
-              ))
-            ) : (
-              <h1 fontSize="xxx-large">Please select a valid location</h1>
-            )}
-          </span>
+        <span className="container">
+          {items ? (
+            items.map((item, index) => (
+              <>
+                {(index === 0 ||
+                  this.dayTime(item.dt_txt).toString() === "00:00") && (
+                  <div className="Breaker">
+                    <h1>{this.dayString(item.dt_txt)}</h1>
+                  </div>
+                )}
+                <WeatherCard
+                  className={this.cardClassSwitch(this.dayTime(item.dt_txt))}
+                  day={item.dt_txt}
+                  image={item.weather[0].description}
+                  description={item.weather[0].description}
+                  temp={Math.round(item.main.temp)}
+                  moisture={item.main.humidity}
+                  feelsTemp={Math.round(item.main.feels_like)}
+                  windDir={item.wind.deg}
+                  windSpd={item.wind.speed}
+                  pressure={item.main.pressure}
+                ></WeatherCard>
+              </>
+            ))
+          ) : (
+            <h1 fontSize="xxx-large">Please select a valid location</h1>
+          )}
+        </span>
       );
     }
   }

@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  color: white;
+  background-color: #000000;
   height: 100%;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr 10%);
@@ -14,46 +14,55 @@
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   border-radius: 5px 5px 5px 5px;
+  background-color: #000000;
 }
 
 .Midnight {
+  background-color: #000066;
   grid-column-start: 1;
   grid-column-end: 2;
 }
 
 .Threeam {
+  background-color: #000066;
   grid-column-start: 2;
   grid-column-end: 3;
 }
 
 .Sixam {
+  background-color: #0000cc;
   grid-column-start: 3;
   grid-column-end: 4;
 }
 
 .Nineam {
+  background-color: #1a1aff;
   grid-column-start: 4;
   grid-column-end: 5;
 }
 
 .Noon {
+  background-color: #8080ff;
   grid-column-start: 5;
   grid-column-end: 6;
 }
 
 .Threepm {
+  background-color: #1a1aff;
   grid-column-start: 6;
   grid-column-end: 7;
 }
 
 .Sixpm {
+  background-color: #0000cc;
   grid-column-start: 7;
   grid-column-end: 8;
 }
 
 .Ninepm {
+  background-color: #000066;
   grid-column-start: 8;
   grid-column-end: 9;
 }
@@ -67,14 +76,15 @@
   display: grid;
   color: white;
   height: 100%;
-  
+  background-color: #000000;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(6, auto .5fr);
+  grid-template-rows: repeat(6, auto 0.5fr);
   gap: 6px 7px;
 }
 
 #root {
   background-color: #000000;
+  height: auto;
 }
 .item {
   width: 0.5vw;
@@ -103,6 +113,7 @@
   background-color: #000000;
   text-align: center;
   min-height: 10vh;
+  height: 100%;
 }
 
 header {
@@ -110,7 +121,7 @@ header {
 }
 footer {
   min-height: min-content;
-  color: whitesmoke;
+  background-color: #000000;
   background-color: #000000;
   font-size: 2rem;
 }
@@ -130,14 +141,32 @@ tr {
   font-size: 0.7em;
   page-break-before: avoid;
 }
-
+@media only screen and (min-width: 400px) {
+  p {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  p {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  p {
+    font-size: 1.3rem;
+  }
+}
 p {
   text-align: center;
   color: whitesmoke;
-  font-size: .25em;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   margin: 0;
-  height: 1fr;
 }
 img {
   margin: 0;
@@ -155,34 +184,36 @@ input {
   border-radius: 60px 60px 60px 25px;
 }
 
+body{
+  height:100%;
+}
+
 form {
   background-color: #000000;
-  height: 100fr;
+  height: 100%;
 }
 
 .windDirection {
   text-align: center;
-  height: 1fr;
-  width: 1fr;
+  height: 0.6fr;
+  width: 0.6fr;
 }
 
 .weatherImage {
   padding-top: 0em;
-  height: 1fr;
-  width: 1fr;
   vertical-align: middle;
   text-align: center;
+  transform: scale(0.9);
 }
 
 .feelsLikeTemp {
   color: whitesmoke;
 }
 
-
 .weatherContainer {
   background-color: #000000;
+  height: 100%;
 }
-
 
 .App-header {
   background-color: #000000;
@@ -204,15 +235,15 @@ form {
   page-break-before: always !important;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.itemGrid:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 251, 251, 0.2);
 }
 
 .container {
   margin: 0px;
   justify-content: center;
   font-size: 3em;
-  height: 200vh;
+  height: 100%;
 }
 button {
   border-radius: 60px 60px 60px 60px;

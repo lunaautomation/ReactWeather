@@ -126,26 +126,7 @@ class WeatherCard extends React.Component {
         );
     }
   }
-  cardColourSwitch(param) {
-    switch (param) {
-      case "03:00":
-        return `#000066`;
-      case "06:00":
-        return "#0000cc";
-      case "09:00":
-        return "#1a1aff";
-      case "12:00":
-        return "#8080ff";
-      case "15:00":
-        return "#1a1aff";
-      case "18:00":
-        return "#0000cc";
-      case "21:00":
-        return "#000066";
-      default:
-        return "#000066";
-    }
-  }
+
   cardClassSwitch(param) {
     switch (param) {
       case "00:00":
@@ -168,6 +149,7 @@ class WeatherCard extends React.Component {
         return "busted";
     }
   }
+
   winSpeedSwitch(input) {
     var param = parseInt(input);
     if (param <= 2) {
@@ -186,6 +168,7 @@ class WeatherCard extends React.Component {
       return 1.2;
     }
   }
+
   moistureSwitch(input) {
     var param = parseInt(input);
     if (param <= 2) {
@@ -202,6 +185,7 @@ class WeatherCard extends React.Component {
       return 1;
     }
   }
+
   dayString(date) {
     var days = [
       "Sunday",
@@ -229,29 +213,25 @@ class WeatherCard extends React.Component {
 
   render() {
     return (
-      <div className= {`${this.props.className} ${"itemGrid"}`}
-      style={{
-          backgroundColor: this.cardColourSwitch(this.dayTime(this.props.day)),
-        }}
-      >
+      <div className={`${this.props.className} ${"itemGrid"}`}>
         <h1>{this.dayTime(this.props.day)}</h1>
-        
-          <div>{this.renderSwitch(this.props.image)}</div>
-          <p>{this.props.temp}°C feels {this.props.feelsTemp}°C</p>
-          <img
-            className="windDirection"
-            title={`${this.props.windSpd} m/sec`}
-            alt={this.props.windSpd}
-            src={arrow}
-            style={{
-              transform: `scale(${this.winSpeedSwitch(
-                this.props.windSpd
-              )}) rotate(${this.props.windDir}deg)`,
-            }}
-          ></img>
-          <p>Moisture {this.props.moisture} </p>
-          <p>Pressure {this.props.pressure} </p>
-        
+        {this.renderSwitch(this.props.image)}
+        <p>
+          {this.props.temp}°C feels {this.props.feelsTemp}°C
+        </p>
+        <img
+          className="windDirection"
+          title={`${this.props.windSpd} m/sec`}
+          alt={this.props.windSpd}
+          src={arrow}
+          style={{
+            transform: `scale(${this.winSpeedSwitch(
+              this.props.windSpd
+            )}) rotate(${this.props.windDir}deg)`,
+          }}
+        ></img>
+        <p>Moisture {this.props.moisture} </p>
+        <p>Pressure {this.props.pressure} </p>
       </div>
     );
   }
