@@ -1,40 +1,94 @@
-.grid {
+.grid-container {
   display: grid;
-  /* This is better for small screens, once min() is better supported */
-  /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
-  grid-gap: 1rem;
-  /* This is the standardized property now, but has slightly less support */
-  /* gap: 1rem */
-  font-size: 0.5vh;
-  min-height: 10vh;
-  align-items: center;
-  justify-content: center;
-}
-.container {
-  background-color: #000000;
-  font-size: 0.5vh;
   color: white;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr 10%);
+  gap: 6px 7px;
+  justify-content: end;
+  align-items: flex-end;
+}
+.itemGrid {
   display: grid;
-  grid-template-columns: minmax(1fr,auto) ;
-  grid-template-rows: minmax(0.5fr,auto) ;
-  grid-row-gap: 1rem;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+  justify-content: center;
+  align-items:center;
+  border-radius: 5px 5px 5px 5px;
 }
-.item {
 
-  width: 0.5vw;
-  height: 1vh;
-  padding: 2vh;
+.Midnight {
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
-.breaker {
-  height: 10px;
+
+.Threeam {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.Sixam {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.Nineam {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.Noon {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+.Threepm {
+  grid-column-start: 6;
+  grid-column-end: 7;
+}
+
+.Sixpm {
+  grid-column-start: 7;
+  grid-column-end: 8;
+}
+
+.Ninepm {
+  grid-column-start: 8;
+  grid-column-end: 9;
+}
+
+.Breaker {
   grid-column-start: 1;
   grid-column-end: 9;
 }
+
+.container {
+  display: grid;
+  color: white;
+  height: 100%;
+  
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, auto .5fr);
+  gap: 6px 7px;
+}
+
+#root {
+  background-color: #000000;
+}
+.item {
+  width: 0.5vw;
+}
+.breaker {
+  background-color: #000000;
+  grid-column-start: 1;
+  grid-column-end: 9;
+  text-align: center;
+  font-size: x-large;
+}
 .Block {
-  max-width: 90%;
-  min-height: 10vh;
+  max-width: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -46,31 +100,29 @@
   background-color: #000000;
 }
 .App {
+  background-color: #000000;
   text-align: center;
-  min-height: 100vh;
+  min-height: 10vh;
 }
 
-.App-logo {
-  height: 10vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 header {
   padding-bottom: 2px;
 }
+footer {
+  min-height: min-content;
+  color: whitesmoke;
+  background-color: #000000;
+  font-size: 2rem;
+}
 h1 {
   text-align: center;
-  font-size: 12px;
+  font-size: large;
   margin: 1px;
 }
 h4 {
+  text-justify: center;
   text-align: center;
-  font-size: .33em;
+  font-size: 1em;
   margin: 1px;
 }
 
@@ -82,41 +134,42 @@ tr {
 p {
   text-align: center;
   color: whitesmoke;
-  font-size: .22em;
-  font-family: Arial;
+  font-size: .25em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin: 0;
-  height: 2%;
+  height: 1fr;
 }
-
+img {
+  margin: 0;
+  height: 1fr;
+}
 .weatherDescription {
   font-size: xx-small;
-  display: grid;
-  margin: 0.1rem;
   color: wheat;
 }
 
 input {
   background-color: #000000;
   color: wheat;
+  height: 1fr;
   border-radius: 60px 60px 60px 25px;
 }
 
 form {
   background-color: #000000;
+  height: 100fr;
 }
 
 .windDirection {
-  height: .5fr;
-  width: .5fr;
   text-align: center;
+  height: 1fr;
+  width: 1fr;
 }
-
-
 
 .weatherImage {
   padding-top: 0em;
-  height: 7vh;
-  width: 7vw;
+  height: 1fr;
+  width: 1fr;
   vertical-align: middle;
   text-align: center;
 }
@@ -125,10 +178,12 @@ form {
   color: whitesmoke;
 }
 
-#root {
+
+.weatherContainer {
   background-color: #000000;
-  height: 140rem;
 }
+
+
 .App-header {
   background-color: #000000;
   min-height: 100vh;
@@ -157,13 +212,10 @@ form {
   margin: 0px;
   justify-content: center;
   font-size: 3em;
-}
-.App-link {
-  color: #61dafb;
+  height: 200vh;
 }
 button {
   border-radius: 60px 60px 60px 60px;
-
   font-size: 8px;
   color: white;
   background-color: green;

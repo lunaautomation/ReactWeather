@@ -31,8 +31,12 @@ class App extends React.Component {
       <input type="text" onChange={this.handleChange} /> 
       <button type="submit" className="btn btn-success" >Go</button>
       </form>     
-      <span >  
-        {this.callAPI()}
+      <span className="weatherContainer">  
+        {this.state.city? (this.callAPI()):(
+<span className="container">
+            <h4 color='white' className="Breaker">Please select a location</h4>
+            </span>
+          )}
       </span>
     </span>
     );
