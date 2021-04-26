@@ -6,6 +6,7 @@ class APIresult extends React.Component {
     super(props);
     this.state = {
       city: "",
+      country: "",
       error: null,
       isLoaded: false,
       items: [{ main: [], weather: [[]], clouds: [], wind: [] }],
@@ -14,13 +15,13 @@ class APIresult extends React.Component {
 
   componentDidMount() {
     this.setState({ error: "" });
-    this.getWeather(this.props.city);
+    this.getWeather(this.props.city, this.props.country);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.city !== prevProps.city) {
       this.setState({ error: "" });
-      this.getWeather(this.props.city);
+      this.getWeather(this.props.city, this.props.country);
     }
   }
 
@@ -32,9 +33,9 @@ class APIresult extends React.Component {
     }
   }
 
-  getWeather(city) {
+  getWeather(city, country) {
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city},uk&units=metric&APPID=992838d6689bba64ea80c087ce5c31ce`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&APPID=992838d6689bba64ea80c087ce5c31ce`
     )
       .then((res) => res.json())
       .then(
