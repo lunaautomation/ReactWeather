@@ -12,8 +12,89 @@ import snow from "./svgs/snow.svg";
 import snowHeavy from "./svgs/snow-heavy.svg";
 import overcast from "./svgs/overcast.svg";
 import arrow from "./svgs/arrow-thin.svg";
+import scatteredCloudNight from "./svgs/scatteredcloud_night.svg";
+import moon from "./svgs/moon.svg";
+import brokenCloudNight from "./svgs/brokencloudnight.svg";
+import fewCloudNight from "./svgs/fewcloudnight.svg";
 
 class WeatherCard extends React.Component {
+  nightrenderSwitch(param) {
+    switch (param) {
+      case "clear sky":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={moon}
+          ></img>
+        );
+      case "scattered clouds":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={scatteredCloudNight}
+          ></img>
+        );
+      case "broken clouds":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={brokenCloudNight}
+          ></img>
+        );
+      case "few clouds":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={fewCloudNight}
+          ></img>
+        );
+      case "light snow":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={snowLight}
+          ></img>
+        );
+      case "snow":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={snow}
+          ></img>
+        );
+      case "heavy snow":
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={snowHeavy}
+          ></img>
+        );
+      default:
+        return (
+          <img
+            alt={this.props.description}
+            title={this.props.description}
+            className="weatherImage"
+            src={scatteredCloudNight}
+          ></img>
+        );
+    }
+  }
+
   renderSwitch(param) {
     switch (param) {
       case "clear sky":
@@ -211,11 +292,21 @@ class WeatherCard extends React.Component {
     return addZero(d.getHours()) + ":" + addZero(d.getMinutes());
   }
 
+  isItDark(time) {
+    if ((time === "00:00") | (time === "03:00") | (time === "21:00")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   render() {
     return (
       <div className={`${this.props.className} ${"itemGrid"}`}>
         <h1>{this.dayTime(this.props.day)}</h1>
-        {this.renderSwitch(this.props.image)}
+        {this.isItDark(this.dayTime(this.props.day))
+          ? this.nightrenderSwitch(this.props.image)
+          : this.renderSwitch(this.props.image)}
         <p>
           {this.props.temp}°C feels {this.props.feelsTemp}°C
         </p>
