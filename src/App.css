@@ -13,8 +13,8 @@
   height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   border-radius: 5px 5px 5px 5px;
   background-color: #000000;
 }
