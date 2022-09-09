@@ -1,7 +1,6 @@
 import React from "react";
-import "./App.css";
-import APIresult from "./api.js";
-import { CountryDropdown } from "react-country-region-selector";
+import APIresult from "../pages/api";
+//import { CountryDropdown } from "react-country-region-selector";
 
 class App extends React.Component {
   constructor(props) {
