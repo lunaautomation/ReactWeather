@@ -1,5 +1,6 @@
 name: Cypress API Branch Tests
 on:
+  workflow_dispatch:
   workflow_run:
     workflows:
       ["first"]
@@ -31,9 +32,15 @@ jobs:
          
     - name: Create branch URL
       shell: bash
-      if: contains(env.GITHUB_BRANCH, 'develop')
+      if: contains(env.GITHUB_BRANCH, 'develop') ==false
       run : |
          URL=${{env.GITHUB_BRANCH}}
          URL=${URL:0:16}
          BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
+
+    - name: The
+      shell: bash
+      run : |    
+         echo "$BRANCH"
+         echo "GITHUB_BRANCH_URL" 
