@@ -5,9 +5,11 @@ on:
       ["first"]
     types:
       - completed
+env:
+  GITHUB_BRANCH_URL: https://develop-pricingtool.appspot.com/
 
 jobs:
-  build:
+  build: 
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v2
@@ -25,3 +27,12 @@ jobs:
          BRANCH=${{github.event.pull_request.head.ref}}
          BRANCH="${BRANCH////-}"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
+         
+    - name: Create branch URL
+      shell: bash
+      if: contains($GITHUB_BRANCH, 'develop')!
+      run : |
+         URL=${{env.GITHUB_BRANCH}}
+         URL=${URL:0:16}
+         BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
+         echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
