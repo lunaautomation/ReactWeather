@@ -24,8 +24,9 @@ jobs:
     - name: Extract branch name
       shell: bash
       run : |
-         BRANCH=${{github.event.pull_request.head.ref}}
+         BRANCH=${{github.event.inputs.default_branch}}
          BRANCH="${BRANCH////-}"
+         echo "$BRANCH"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
          
     - name: Create branch URL
