@@ -30,7 +30,7 @@ jobs:
          
     - name: Create branch URL
       shell: bash
-      if: contains(env.GITHUB_BRANCH, 'develop') == false
+      if: contains(env.GITHUB_BRANCH, 'develop')
       run : |
          URL=${{env.GITHUB_BRANCH}}
          URL=${URL:0:16}
