@@ -1,5 +1,6 @@
 name: Cypress API Branch Tests
 on:
+  pull_request:
   workflow_dispatch:
   workflow_run:
     workflows:
