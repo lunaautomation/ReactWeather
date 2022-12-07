@@ -26,6 +26,7 @@ jobs:
     - name: Extract branch name
       shell: bash
       run : |
+         echo more $GITHUB_EVENT_PATH
          BRANCH=${{github.event.workflow_run.head_branch}}
          BRANCH="${BRANCH////-}"
          echo "$BRANCH"
