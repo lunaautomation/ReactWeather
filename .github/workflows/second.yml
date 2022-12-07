@@ -1,5 +1,6 @@
 name: Cypress API Branch Tests
 on:
+  pull_request:
   workflow_dispatch:
   workflow_run:
     workflows:
@@ -15,7 +16,7 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.workflow_run.head_branch }}
+        ref: ${{ github.event.pull_request.base.ref }}
 
     - name: Use Node.js 16
       uses: actions/setup-node@v1
@@ -25,7 +26,7 @@ jobs:
     - name: Extract branch name
       shell: bash
       run : |
-         BRANCH=${{github.event.workflow_run.head_branch}}
+         BRANCH=${{github.head_ref}}
          BRANCH="${BRANCH////-}"
          echo "$BRANCH"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
