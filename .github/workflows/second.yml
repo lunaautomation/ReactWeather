@@ -16,7 +16,7 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.workflow_run.head_branch }}
+        ref: ${{ github.event.pull_request.base.ref }}
 
     - name: Use Node.js 16
       uses: actions/setup-node@v1
