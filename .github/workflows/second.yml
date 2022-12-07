@@ -26,8 +26,8 @@ jobs:
     - name: Extract branch name
       shell: bash
       run : |
-         echo ${{ github.event.pull_request }}
-         BRANCH=${{github.event.workflow_run.head_branch}}
+         echo toJSON(${{ github.event.pull_request }})
+         BRANCH=${{github.head_ref}}
          BRANCH="${BRANCH////-}"
          echo "$BRANCH"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
