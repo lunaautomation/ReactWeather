@@ -1,5 +1,7 @@
 name: Cypress API Branch Tests
 on:
+  pull_request:
+  workflow_dispatch:
   workflow_run:
     workflows:
       ["first"]
@@ -14,7 +16,7 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.workflow_run.head_branch }}
+        ref: ${{ github.event.pull_request.base.ref }}
 
     - name: Use Node.js 16
       uses: actions/setup-node@v1
@@ -24,15 +26,22 @@ jobs:
     - name: Extract branch name
       shell: bash
       run : |
-         BRANCH=${{github.event.pull_request.head.ref}}
+         BRANCH=${{github.head_ref}}
          BRANCH="${BRANCH////-}"
+         echo "$BRANCH"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
          
     - name: Create branch URL
       shell: bash
-      if: contains($GITHUB_BRANCH, 'develop')!
+      if: "${{ env.GITHUB_BRANCH != '' }}"
       run : |
          URL=${{env.GITHUB_BRANCH}}
          URL=${URL:0:16}
          BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
+
+    - name: The
+      shell: bash
+      run : |    
+         echo "$BRANCH"
+         echo "GITHUB_BRANCH_URL" 

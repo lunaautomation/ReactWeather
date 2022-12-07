@@ -8,6 +8,6 @@ Upcoming updates:
 
   * Hourly rendering and day display fixes
   * Fixes to the inital load/location not found state
-  * A country selector 
-  * Improved weather icons for night and snow
+
   * ..
+
