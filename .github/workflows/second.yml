@@ -26,7 +26,6 @@ jobs:
     - name: Extract branch name
       shell: bash
       run : |
-         echo toJSON(${{ github.event.pull_request }})
          BRANCH=${{github.head_ref}}
          BRANCH="${BRANCH////-}"
          echo "$BRANCH"
