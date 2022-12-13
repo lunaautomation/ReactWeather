@@ -1,9 +1,6 @@
 name: Cypress API Branch Tests
 on:
   pull_request:
-      branches:
-      - '*'
-      - '!master'
   workflow_dispatch:
   workflow_run:
     workflows:
@@ -47,4 +44,4 @@ jobs:
       shell: bash
       run : |    
          echo "$BRANCH"
-         echo "GITHUB_BRANCH_URL" 
+         echo "$GITHUB_BRANCH_URL" 
