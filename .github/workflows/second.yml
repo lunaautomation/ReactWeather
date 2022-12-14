@@ -33,7 +33,7 @@ jobs:
          
     - name: Create branch URL
       shell: bash
-      if: ${{github.head_ref,!startsWith('release')}}
+      if: ${{!startsWith(github.head_ref,'release')}}
       run : |
          URL=${{env.GITHUB_BRANCH}}
          URL=${URL:0:16}
