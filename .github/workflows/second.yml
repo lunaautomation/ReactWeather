@@ -49,7 +49,7 @@ jobs:
          
     - name: Is it main
       shell: bash
-      if: github.head_ref == ""
+      if: github.head_ref == ''
       
       run : echo "GITHUB_BRANCH_URL=https://develop-pricingtool.appspot.com/" >> $GITHUB_ENV
       
