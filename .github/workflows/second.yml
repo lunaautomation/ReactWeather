@@ -32,7 +32,7 @@ jobs:
          VALUE=v44
          echo "VERSION_VALUE=$VALUE" >> $GITHUB_ENV
          
-    - name: Create branch URL
+    - name: Create branch URL if not release 
       shell: bash
       if: ${{!startsWith(github.event.pull_request.head.ref,'release')}}
       run : |
@@ -42,8 +42,14 @@ jobs:
          BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
          
+    - name: Create branch URL
+      shell: bash
+      if: ${{endsWith( ${GITHUB_REF},'master')}}
+      run : |
+         BRANCH_OUT="https://develop-pricingtool.appspot.com/"
+         echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV    
   
-    - name: The
+    - name: The END
       shell: bash
       run : |    
          echo "$BRANCH"
