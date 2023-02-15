@@ -12,6 +12,11 @@ env:
   GITHUB_BRANCH_URL: https://develop-pricingtool.appspot.com/
 
 jobs:
+  branch-check:
+    if: ${{!startsWith(github.head_ref,'release')||!endsWith(github.head_ref,'master')}}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "THIS IS A TEST!"
   build: 
     runs-on: ubuntu-latest
     steps: 
@@ -36,10 +41,13 @@ jobs:
          echo "$BRANCH"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
          echo ${{github.head_ref}}
-         
+   
+   
+   
     - name: Create branch URL
       shell: bash
       if: ${{!startsWith(github.head_ref,'release'||'master')}}
+      
       run : |
          URL=${{env.GITHUB_BRANCH}}
          URL=${URL:0:16}
