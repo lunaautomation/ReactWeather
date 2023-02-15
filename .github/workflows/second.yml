@@ -19,8 +19,10 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.base.ref }}
         
-    - name: Branch name
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+    - run: npm ci
+    - uses: nelonoel/branch-name@v1
+    # Use branch name for whatever purpose
+    - run: echo ${BRANCH_NAME}
       
     - name: Use Node.js 16
       uses: actions/setup-node@v1
