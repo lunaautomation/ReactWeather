@@ -31,6 +31,7 @@ jobs:
          BRANCH="${BRANCH////-}"
          echo "$BRANCH"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
+         echo ${{github.head_ref}}
          
     - name: Create branch URL
       shell: bash
