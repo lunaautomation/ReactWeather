@@ -32,11 +32,8 @@ jobs:
       run : |
          BRANCH=${{github.head_ref}}
          BRANCH="${BRANCH////-}"
-         echo "The branch is: $BRANCH" 
-         echo "The head ref is: ${{github.head_ref}}" 
-         echo "$BRANCH"
+         BRANCH="${BRANCH//_/-}"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
-         echo ${{github.head_ref}}
    
    
    
