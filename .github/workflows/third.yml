@@ -3,6 +3,11 @@ name: This is an example
 on: [workflow_dispatch]
 
 jobs:
+  branch-check:
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "THIS IS A TEST!"
   one:
     runs-on: ubuntu-latest
     steps:
