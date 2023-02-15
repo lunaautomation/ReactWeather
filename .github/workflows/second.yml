@@ -49,7 +49,7 @@ jobs:
          
     - name: Is it main
       shell: bash
-      if: ${{startsWith(github.head_ref,'master')}}
+      if: ${{startsWith(github.head_ref,' ')}}
       
       run : |
           DEVELOP="https://develop-pricingtool.appspot.com/"
