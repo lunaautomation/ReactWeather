@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   branch-check:
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{!startsWith(github.head_ref,'release')||!endsWith(github.head_ref,'develop')}}
     runs-on: ubuntu-latest
     steps:
       - run: echo "THIS IS A TEST!"
