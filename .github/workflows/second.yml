@@ -47,4 +47,5 @@ jobs:
       shell: bash
       run : |    
          echo "$BRANCH"
+         echo ${GITHUB_REF##*/}
          echo "$GITHUB_BRANCH_URL" 
