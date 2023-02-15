@@ -1,29 +1,21 @@
 name: Cypress API Branch Tests
 concurrency: build
-on:
-  pull_request:
+on: 
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      ["first"]
-    types:
-      - completed
+  
 env:
   GITHUB_BRANCH_URL: https://develop-pricingtool.appspot.com/
 
 jobs:
- 
-  build: 
+ build:
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.workflow_run.head_branch }}
-        
-    - run: echo ${BRANCH_NAME}
-      
+
     - name: Use Node.js 16
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: 16.10.0
 
@@ -34,27 +26,23 @@ jobs:
          BRANCH="${BRANCH////-}"
          BRANCH="${BRANCH//_/-}"
          echo "GITHUB_BRANCH=$BRANCH" >> $GITHUB_ENV
-   
-   
-   
-    - name: Is it as release
+    - name: Get current develop dataset version
+      shell: bash 
+      run: | 
+         VALUE=v44
+         echo "VERSION_VALUE=$VALUE" >> $GITHUB_ENV
+         
+    - name: Create branch URL
       shell: bash
       if: ${{!startsWith(github.head_ref,'release')}}
-      
       run : |
          URL=${{env.GITHUB_BRANCH}}
-         URL=${URL:0:16}
+         URL=${URL:0:26}
+         URL=${URL,,}
          BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
          
-    - name: Is it main
-      shell: bash
-      if: ${{startsWith(github.head_ref,' ')}}
-      
-      run : |
-          DEVELOP="https://develop-pricingtool.appspot.com/"
-          echo "GITHUB_BRANCH_URL=$DEVELOP" >> $GITHUB_ENV
-      
+  
     - name: The
       shell: bash
       run : |    
