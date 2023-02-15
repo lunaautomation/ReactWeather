@@ -37,16 +37,22 @@ jobs:
    
    
    
-    - name: Create branch URL
+    - name: Is it as release
       shell: bash
-      if: ${{!startsWith(github.head_ref,'release')}} || github.head_ref == ""
+      if: ${{!startsWith(github.head_ref,'release')}}
       
       run : |
          URL=${{env.GITHUB_BRANCH}}
          URL=${URL:0:16}
          BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
-
+         
+    - name: Is it main
+      shell: bash
+      if: github.head_ref == ""
+      
+      run : echo "GITHUB_BRANCH_URL=https://develop-pricingtool.appspot.com/" >> $GITHUB_ENV
+      
     - name: The
       shell: bash
       run : |    
