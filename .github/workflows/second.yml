@@ -44,7 +44,7 @@ jobs:
          
     - name: Create branch URL
       shell: bash
-      if: GITHUB_REF === 'master')
+      if: GITHUB_REF == 'master'
       run : |
          BRANCH_OUT="https://develop-pricingtool.appspot.com/"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV    
