@@ -41,20 +41,13 @@ jobs:
          URL=${URL,,}
          BRANCH_OUT="https://${{env.VERSION_VALUE}}-${URL}-dot-develop-pricingtool.nw.r.appspot.com"
          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
-         
-    - name: Create branch URL
-      shell: bash
-      if: github.ref == 'master'
-      run : |
-         BRANCH_OUT="https://develop-pricingtool.appspot.com/"
-         echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV    
   
     - name: Set env BRANCH
       run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)" >> $GITHUB_ENV
 
     - name: Set env NEED
       run: |
-          if [[ $BRANCH == 'master' && $GITHUB_EVENT_NAME == 'push' ]]; then
+          if [[ $BRANCH == 'master' ]]; then
               echo "NEED=true" >> "$GITHUB_ENV"
           else
               echo "NEED=false" >> "$GITHUB_ENV"
@@ -62,7 +55,9 @@ jobs:
 
     - name: Skip Deploy?
       if: env.NEED != 'true'
-      run: echo "Only pushing to 'master' causes automatic deployment"
+      run : |
+         BRANCH_OUT="https://develop-pricingtool.appspot.com/"
+         echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV    
         
     - name: The END
       shell: bash
