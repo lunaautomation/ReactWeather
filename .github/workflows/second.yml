@@ -49,11 +49,11 @@ jobs:
          
     - name: Is it main
       shell: bash
-      if: github.head_ref == ''
+      if: ${{!startsWith(github.head_ref,'')}}
       
       run : |
-          BRANCH_OUT="https://develop-pricingtool.appspot.com/"
-          echo "GITHUB_BRANCH_URL=$BRANCH_OUT" >> $GITHUB_ENV
+          DEVELOP="https://develop-pricingtool.appspot.com/"
+          echo "GITHUB_BRANCH_URL=$DEVELOP" >> $GITHUB_ENV
       
     - name: The
       shell: bash
