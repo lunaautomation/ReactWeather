@@ -1,4 +1,5 @@
 name: Cypress API Branch Tests
+concurrency: build
 on:
   pull_request:
   workflow_dispatch:
