@@ -321,8 +321,8 @@ class WeatherCard extends React.Component {
             )}) rotate(${this.props.windDir}deg)`,
           }}
         ></img>
-        <h2>Moisture {this.props.moisture} </h2>
-        <h2>Pressure {this.props.pressure} </h2>
+        <h2>Moisture</h2> <p> {this.props.moisture} </p>
+        <h2>Pressure</h2> <p> {this.props.pressure} </p>
       </div>
     );
   }
