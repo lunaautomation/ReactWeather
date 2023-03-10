@@ -307,9 +307,9 @@ class WeatherCard extends React.Component {
         {this.isItDark(this.dayTime(this.props.day))
           ? this.nightrenderSwitch(this.props.image)
           : this.renderSwitch(this.props.image)}
-        <p>
+        <h2>
           {this.props.temp}°C feels {this.props.feelsTemp}°C
-        </p>
+        </h2>
         <img
           className="windDirection"
           title={`${this.props.windSpd} m/sec`}
@@ -321,8 +321,8 @@ class WeatherCard extends React.Component {
             )}) rotate(${this.props.windDir}deg)`,
           }}
         ></img>
-        <p>Moisture {this.props.moisture} </p>
-        <p>Pressure {this.props.pressure} </p>
+        <h2>Moisture {this.props.moisture} </h2>
+        <h2>Pressure {this.props.pressure} </h2>
       </div>
     );
   }

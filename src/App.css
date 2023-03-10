@@ -151,10 +151,17 @@ tr {
   p, h1{
     font-size: small;
   }
+  h2{
+    margin: 1%;
+    font-size: xx-small;
+  }
 }
 @media only screen and (min-width: 600px) {
   p, h1{
     font-size: medium;
+  }
+  h2{
+    font-size: x-small;
   }
 }
 @media only screen and (min-width: 800px) {
@@ -162,10 +169,16 @@ tr {
   h1, p {
     font-size: large;
   }
+  h2{
+    font-size: medium;
+  }
 }
 @media only screen and (min-width: 1000px) {
   h1,p {
     font-size: x-large;
+  }
+  h2{
+    font-size: large;
   }
 }
 p {
