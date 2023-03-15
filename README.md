@@ -6,5 +6,5 @@ To see this exciting weather app develop in real time, visit the currently built
 
 Upcoming updates: 
 
-  * Move to .env 
+  * Move to .env  
 
