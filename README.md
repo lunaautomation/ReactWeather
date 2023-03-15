@@ -6,8 +6,5 @@ To see this exciting weather app develop in real time, visit the currently built
 
 Upcoming updates: 
 
-  * Hourly rendering and day display fixes
-  * Fixes to the inital load/location not found state
-
-  * ..
+  * Move to env
 
