@@ -16,237 +16,92 @@ import scatteredCloudNight from "./svgs/scatteredcloud_night.svg";
 import moon from "./svgs/moon.svg";
 import brokenCloudNight from "./svgs/brokencloudnight.svg";
 import fewCloudNight from "./svgs/fewcloudnight.svg";
+import moisture from "./svgs/moisture.svg"
 
 class WeatherCard extends React.Component {
   nightrenderSwitch(param) {
-    switch (param) {
-      case "clear sky":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={moon}
-          ></img>
-        );
-      case "scattered clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={scatteredCloudNight}
-          ></img>
-        );
-      case "broken clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={brokenCloudNight}
-          ></img>
-        );
-      case "few clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={fewCloudNight}
-          ></img>
-        );
-      case "light snow":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={snowLight}
-          ></img>
-        );
-      case "snow":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={snow}
-          ></img>
-        );
-      case "heavy snow":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={snowHeavy}
-          ></img>
-        );
-      default:
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={scatteredCloudNight}
-          ></img>
-        );
+    const images = {
+      "clear sky": moon,
+      "scattered clouds": scatteredCloudNight,
+      "broken clouds": brokenCloudNight,
+      "few clouds": fewCloudNight,
+      "light snow": snowLight,
+      "snow": snow,
+      "heavy snow": snowHeavy,
     }
+    const imageSrc = images[param] || scatteredCloudNight;
+    return (
+      <img
+        alt={this.props.description}
+        title={this.props.description}
+        className="weatherImage"
+        src={imageSrc}
+      ></img>
+    );
   }
 
-  renderSwitch(param) {
-    switch (param) {
-      case "clear sky":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={sun}
-          ></img>
-        );
-      case "light rain":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={rainLight}
-          ></img>
-        );
-      case "moderate rain":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={rainMed}
-          ></img>
-        );
-      case "heavy rain":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={rainHeavy}
-          ></img>
-        );
-      case "overcast clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={overcast}
-          ></img>
-        );
-      case "scattered clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={scatteredCloud}
-          ></img>
-        );
-      case "broken clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={brokenCloud}
-          ></img>
-        );
-      case "few clouds":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={fewCloud}
-          ></img>
-        );
-      case "light snow":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={snowLight}
-          ></img>
-        );
-      case "snow":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={snow}
-          ></img>
-        );
-      case "heavy snow":
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={snowHeavy}
-          ></img>
-        );
-      default:
-        return (
-          <img
-            alt={this.props.description}
-            title={this.props.description}
-            className="weatherImage"
-            src={cloud}
-          ></img>
-        );
-    }
+  renderSwitch(condition) {
+    const images = {
+      "clear sky": sun,
+      "light rain": rainLight,
+      "moderate rain": rainMed,
+      "heavy rain": rainHeavy,
+      "overcast clouds": overcast,
+      "scattered clouds": scatteredCloud,
+      "broken clouds": brokenCloud,
+      "few clouds": fewCloud,
+      "light snow": snowLight,
+      "snow": snow,
+      "heavy snow": snowHeavy
+    };
+
+    const imgSrc = images[condition] || cloud;
+
+    return (
+      <img
+        alt={this.props.description}
+        title={this.props.description}
+        className="weatherImage"
+        src={imgSrc}
+      />
+    );
   }
 
-  cardClassSwitch(param) {
-    switch (param) {
-      case "00:00":
-        return "Midnight";
-      case "03:00":
-        return "Threeam";
-      case "06:00":
-        return "Sixam";
-      case "09:00":
-        return "Nineam";
-      case "12:00":
-        return "Noon";
-      case "15:00":
-        return "Threepm";
-      case "18:00":
-        return "Sixpm";
-      case "21:00":
-        return "Ninepm";
-      default:
-        return "busted";
-    }
+  cardClassSwitch(time) {
+    const timeClassMap = {
+      "00:00": "midnight",
+      "03:00": "early-morning",
+      "06:00": "morning",
+      "09:00": "late-morning",
+      "12:00": "noon",
+      "15:00": "afternoon",
+      "18:00": "evening",
+      "21:00": "night",
+    };
+    return timeClassMap[time] || "busted";
   }
 
-  winSpeedSwitch(input) {
-    var param = parseInt(input);
-    if (param <= 2) {
-      return 0.3;
-    } else if (param <= 5) {
-      return 0.4;
-    } else if (param <= 8) {
-      return 0.5;
-    } else if (param <= 10) {
-      return 0.6;
-    } else if (param <= 15) {
-      return 0.7;
-    } else if (param <= 20) {
-      return 1;
-    } else if (param <= 30) {
-      return 1.2;
+  
+   winSpeedSwitch(input) {
+    const speed = parseInt(input);
+  
+    switch(true) {
+      case (speed <= 2):
+        return 0.3;
+      case (speed <= 5):
+        return 0.4;
+      case (speed <= 8):
+        return 0.5;
+      case (speed <= 10):
+        return 0.6;
+      case (speed <= 15):
+        return 0.7;
+      case (speed <= 20):
+        return 1;
+      case (speed <= 30):
+        return 1.2;
+      default:
+        return null; // or whatever is appropriate for the use case
     }
   }
 
@@ -268,7 +123,7 @@ class WeatherCard extends React.Component {
   }
 
   dayString(date) {
-    var days = [
+    const days = [
       "Sunday",
       "Monday",
       "Tuesday",
@@ -277,8 +132,8 @@ class WeatherCard extends React.Component {
       "Friday",
       "Saturday",
     ];
-    var d = new Date(date);
-    return days[d.getDay()];
+    const d = new Date(date);
+    return days[d.getUTCDay()];
   }
 
   dayTime(date) {
@@ -308,7 +163,7 @@ class WeatherCard extends React.Component {
           ? this.nightrenderSwitch(this.props.image)
           : this.renderSwitch(this.props.image)}
         <h2>
-          {this.props.temp}°C feels {this.props.feelsTemp}°C
+          {this.props.temp}°C</h2><h2> (feels {this.props.feelsTemp}°C)
         </h2>
         <img
           className="windDirection"
@@ -321,7 +176,16 @@ class WeatherCard extends React.Component {
             )}) rotate(${this.props.windDir}deg)`,
           }}
         ></img>
-        <h2>Moisture</h2> <p> {this.props.moisture} </p>
+        <img
+          src={moisture}
+          title={`moisture ${this.props.moisture}`}
+          alt={this.props.moisture}
+          style={{
+            padding: 0,
+            height: 15,
+            transform: `scale(0.5)`,
+          }}
+        ></img>
         <h2>Pressure</h2> <p> {this.props.pressure} </p>
       </div>
     );
