@@ -4,7 +4,7 @@ Recent updates to the responsive design mean you should be able to see this runn
 
 To see this exciting weather app develop in real time, visit the currently built version of this here on it's [render site](https://webby.onrender.com)
 
-Upcoming updates: 
+Upcoming updates: sdsd
 
   * Move to .env  
    
