@@ -2,7 +2,7 @@ A weather app for checking UK weather by town name, using data from the open wea
 
 Recent updates to the responsive design mean you should be able to see this running on smaller screens. 
 
-To see this exciting weather app develop in real time, visit the currently built version of this here on it's [render site](https://webby.onrender.com)
+To see this exciting weather app develop in real time, visit the currently built version of this here on it's [render site](https://classy-bunny-1ab630.netlify.app/)
 
 Upcoming updates: 
 
