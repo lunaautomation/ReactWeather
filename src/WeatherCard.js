@@ -3,6 +3,7 @@ import sun from "./svgs/sun.svg";
 import rainLight from "./svgs/rain-light.svg";
 import rainMed from "./svgs/rain-med.svg";
 import rainHeavy from "./svgs/rain-heavy.svg";
+import thunderStorm from "./svgs/thunderstorm.svg";
 import cloud from "./svgs/cloud.svg";
 import brokenCloud from "./svgs/brokencloud.svg";
 import scatteredCloud from "./svgs/scatteredcloud.svg";
@@ -52,7 +53,8 @@ class WeatherCard extends React.Component {
       "few clouds": fewCloud,
       "light snow": snowLight,
       "snow": snow,
-      "heavy snow": snowHeavy
+      "heavy snow": snowHeavy,
+      "thunderstorm": thunderStorm
     };
 
     const imgSrc = images[condition] || cloud;
